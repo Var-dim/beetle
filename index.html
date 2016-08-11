@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>beetle run</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/animate.js"></script> 
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    
+</head>
+
+<body>
+
+
+
+    <!-- <div id="path">
+        <div id="brick">1</div>
+    </div> -->
+
+    <div class="path" id="path">
+        <div class="brick" id="brick">1</div>
+    </div>
+    
+    <div class="path" id="path1">
+        <div class="brick" id="brick1">2</div>
+    </div>
+    <div class="path" id="path2">
+        <div class="brick" id="brick2">3</div>
+    </div>
+    <div class="path" id="path3">
+        <div class="brick" id="brick3">4</div>
+    </div>
+    <div class="path" id="path4">
+        <div class="brick" id="brick5">5</div>
+    </div>
+    
+    
+    <script>
+        function makeEaseOut(timing) {
+            return function (timeFraction) {
+                return 1 - timing(1 - timeFraction);
+            }
+        }
+
+        function bounce(timeFraction) {
+            for (var a = 0, b = 1, result; 1; a += b, b /= 2) {
+                if (timeFraction >= (7 - 4 * a) / 11) {
+                    return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2)
+                }
+            }
+        }
+
+        // Возвращает случайное целое число между min (включительно) и max (не включая max)
+        // Использование метода Math.round() даст вам неравномерное распределение!
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        } 
+        var bounceEaseOut = makeEaseOut(bounce);
+
+        brick.onclick = function () {
+            animate({
+                duration: getRandomInt(4000, 9000),
+                timing: bounceEaseOut,
+                draw: function (progress) {
+                    brick.style.left = progress * 500 + 'px';
+                }
+            });
+        };
+        
+        $(document).ready(function(){
+            
+        }
+    </script>
+
+</body>
+
+</html>

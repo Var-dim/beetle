@@ -1,0 +1,24 @@
+.brick {
+    width: 40px;
+    height: 20px;
+    left: 0px;
+    background: #EE6B47;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+
+.path {
+    outline: 1px solid #E8C48E;
+    width: 540px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+#start {
+    margin-bottom: 10px;
+}
+
+#brick1 {
+ transition: left 5s cubic-bezier(0, 0, 1, 1);
+}
